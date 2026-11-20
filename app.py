@@ -99,7 +99,7 @@ def _with_wakeup(method: str, url: str, retry_on_timeout: bool = True,
 # =========================================================
 # WAKE-UP UI (status banner + query box lock)
 # =========================================================
-QUERY_PLACEHOLDER = "Pose ta question puis appuie sur Entrée"
+QUERY_PLACEHOLDER = "Pose ta question sur l'association Guild Open Techpuis appuie sur Entrée"
 
 
 def _waking_ui(elapsed_s: int) -> tuple:
@@ -405,7 +405,7 @@ with gr.Blocks(title="Chatbot FAQ + RAG", css=custom_css) as demo:
         with gr.Column(scale=1, min_width=50):
             gr.Image(value="logo.png", type="filepath",
                     width=90, min_width=90,interactive=False, show_fullscreen_button=False,
-                    show_download_button=False, show_label=False)
+                    show_share_button=False, show_download_button=False, show_label=False)
         with gr.Column(scale=5):
             gr.HTML("<h1 style='text-align: left; font-weight: bold;'>   Test et évaluation du chatbot FAQ + RAG</h1>")
             gr.HTML(f"<a href='{LANGFUSE_LINK}' target='_blank'>Langfuse traces</a>")
@@ -416,7 +416,8 @@ with gr.Blocks(title="Chatbot FAQ + RAG", css=custom_css) as demo:
         faq_content = gr.Markdown("*Chargement de la FAQ…*", elem_id="faq_content")
 
     sel_query = gr.Textbox(label="Question", placeholder=QUERY_PLACEHOLDER)
-    chatbot = gr.Chatbot(type="messages", elem_id="faq_chatbot", label="Conversation")
+    chatbot = gr.Chatbot(type="messages", elem_id="faq_chatbot",
+                         label="Réponse (pas de mode conversation : seule la dernière question est considérée)")
 
     # Feedback section
     with gr.Row():
