@@ -99,7 +99,7 @@ def _with_wakeup(method: str, url: str, retry_on_timeout: bool = True,
 # =========================================================
 # WAKE-UP UI (status banner + query box lock)
 # =========================================================
-QUERY_PLACEHOLDER = "Pose ta question sur l'association Guild Open Techpuis appuie sur Entrée"
+QUERY_PLACEHOLDER = "Pose ta question sur l'association Guild Open Tech puis appuie sur Entrée"
 
 
 def _waking_ui(elapsed_s: int) -> tuple:
@@ -363,19 +363,19 @@ def on_clear():
 # =========================================================
 custom_css = """
 /* Responsive chatbot height (Gradio wrapper + inner containers) */
-#faq_chatbot,
-#faq_chatbot > .wrap,
-#faq_chatbot .wrap,
-#faq_chatbot .bubble-wrap {
+#chatbot,
+#chatbot > .wrap,
+#chatbot .wrap,
+#chatbot .bubble-wrap {
     height: clamp(200px, 40vh, 420px) !important;
     max-height: clamp(200px, 40vh, 420px) !important;
 }
 
 @media (max-width: 768px) {
-    #faq_chatbot,
-    #faq_chatbot > .wrap,
-    #faq_chatbot .wrap,
-    #faq_chatbot .bubble-wrap {
+    #chatbot,
+    #chatbot > .wrap,
+    #chatbot .wrap,
+    #chatbot .bubble-wrap {
         height: clamp(160px, 35vh, 300px) !important;
         max-height: clamp(160px, 35vh, 300px) !important;
     }
@@ -416,7 +416,7 @@ with gr.Blocks(title="Chatbot FAQ + RAG", css=custom_css) as demo:
         faq_content = gr.Markdown("*Chargement de la FAQ…*", elem_id="faq_content")
 
     sel_query = gr.Textbox(label="Question", placeholder=QUERY_PLACEHOLDER)
-    chatbot = gr.Chatbot(type="messages", elem_id="faq_chatbot",
+    chatbot = gr.Chatbot(type="messages", elem_id="chatbot",
                          label="Réponse (pas de mode conversation : seule la dernière question est considérée)")
 
     # Feedback section
