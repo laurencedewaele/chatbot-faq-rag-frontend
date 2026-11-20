@@ -49,5 +49,5 @@ TRACE_NAME: str = os.getenv("TRACE_NAME", "chatbot-frontend")
 # Gradio / misc
 # ---------------------------------------------------------
 # 7860 is the backend port when both run locally; HF Spaces sets GRADIO_SERVER_PORT=7860 itself
-GRADIO_PORT: int = int(os.getenv("GRADIO_SERVER_PORT", "7861"))
+GRADIO_PORT: int = int(os.getenv("GRADIO_SERVER_PORT", "7860"))
 LANGFUSE_LINK = "https://cloud.langfuse.com/project/cmwnkw8rg00bgad0gzz2w1bax/traces?filter=name%3BstringOptions%3B%3Bnone+of%3Bfaq-rerank%257Cfaq-retrieval%257Cfaq-judge%257Canswer-generation%257Cretrieval&dateRange=30m"
